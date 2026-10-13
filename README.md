@@ -8,6 +8,18 @@ This project implements a machine learning-based solution to detect and identify
 
 Social media platforms face a growing challenge with fake accounts used for spam, fraud, impersonation, and malicious activities. This project develops an intelligent classification system to automatically identify suspicious accounts based on their profile characteristics and engagement patterns.
 
+## Results
+
+**Dataset:** `train.csv` (576 accounts) for training and `test.csv` (120 accounts) for evaluation. Both are balanced (50% genuine, 50% fake), with 11 profile features.
+
+| Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|---|
+| Majority-class baseline | 50.0% | 0.0% | 0.0% | 0.0% | 0.50 |
+| Logistic Regression (scaled) | 87.5% | 88.1% | 86.7% | 87.4% | 0.94 |
+| **Random Forest (300 trees)** | **91.7%** | **93.1%** | **90.0%** | **91.5%** | **0.99** |
+
+Top features (Random Forest): `#followers` (~29%), `#posts` (~23%), `nums/length username` (~14%), `profile pic` (~10%). Results use `random_state=42`.
+
 ## Key Features
 
 - **Data Analysis & Exploration**: Comprehensive exploratory data analysis (EDA) to understand patterns in authentic vs. fake accounts
